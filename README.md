@@ -5,7 +5,7 @@
 ![GitHub](https://img.shields.io/badge/Portfolio-Project-success)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
-![Project Overview](../Images/1_1_Project1_EDA.png)
+![Project Overview](/Images/1_1_Project1_EDA.png)
 
 This project explores the **Data Engineer job market** using real-world job posting data collected **from 2023 to the present**. Through analytical SQL queries, I investigated current hiring trends, salary patterns, and the technologies that are most valuable for aspiring Data Engineers.
 
@@ -51,7 +51,7 @@ Using a dataset of **Data Engineer job postings from 2023 to the present**, this
 
 The analysis is performed on a relational data warehouse designed using a **star schema**, consisting of:
 
-![Data Warehouse](../Images/1_2_Data_Warehouse.png)
+![Data Warehouse](/Images/1_2_Data_Warehouse.png)
 
 ### Database Structure
 
