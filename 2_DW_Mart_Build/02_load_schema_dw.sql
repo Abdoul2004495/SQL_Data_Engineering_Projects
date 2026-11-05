@@ -13,7 +13,7 @@ FROM read_csv(
     parallel = false
 );
 
-
+SELECT '=== Loading skills_dim Table ===' AS info;
 -- 2. Load skills dimension
 INSERT INTO skills_dim (skill_id, skills, type)
 SELECT
@@ -26,7 +26,7 @@ FROM read_csv(
     parallel = false
 );
 
-
+SELECT '=== Loading job_postings_fact Table ===' AS info;
 -- 3. Load job postings fact table
 INSERT INTO job_postings_fact (
     job_id,
@@ -69,7 +69,7 @@ FROM read_csv(
     parallel = false
 );
 
-
+SELECT '=== Loading skills_job_dim Table ===' AS info;
 -- 4. Load skills-job bridge table
 INSERT INTO skills_job_dim (skill_id, job_id)
 SELECT
