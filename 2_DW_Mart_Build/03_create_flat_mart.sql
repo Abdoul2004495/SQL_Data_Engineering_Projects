@@ -4,6 +4,8 @@ DROP SCHEMA IF EXISTS flat_mart CASCADE;
 
 CREATE SCHEMA flat_mart;
 
+
+SELECT '=== Loading Flat Mart ===' AS info;
 CREATE OR REPLACE TABLE flat_mart.job_postings AS
 SELECT
     -- Fact table fields
@@ -24,14 +26,13 @@ SELECT
     jpf.salary_year_avg,
     jpf.salary_hour_avg,
     -- Company dimension fields
-    cd.company_id,
     cd.name AS company_name,
     ARRAY_AGG(
         STRUCT_PACK(
             type:= sd.type,
             name:= sd.skills
         )
-    ) AS skill_and_types
+    ) FILTER (WHERE sd.skill_id IS NOT NULL) AS skill_and_types
 FROM
     job_postings_fact AS jpf
 LEFT JOIN
@@ -45,4 +46,7 @@ LEFT JOIN
     ON sjd.skill_id = sd.skill_id
 GROUP BY ALL;
 
-SELECT COUNT(*) FROM flat_mart.job_postings;
+SELECT 'Flat Mart Job Postings' AS table_name, COUNT(*) AS record_count FROM flat_mart.job_postings;
+
+SELECT '=== Flat Mart Sample ===' AS info;
+SELECT * FROM flat_mart.job_postings LIMIT 10;
