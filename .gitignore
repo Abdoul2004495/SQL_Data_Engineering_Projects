@@ -2,7 +2,9 @@
 __pycache__/
 *.py[codz]
 *$py.class
-
+# DuckDB databases
+*.duckdb
+*.duckdb.wal
 # C extensions
 *.so
 
